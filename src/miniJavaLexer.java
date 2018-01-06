@@ -206,4 +206,16 @@ public class miniJavaLexer extends Lexer {
 			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
 		}
 	}
+	
+	// 重写Lexer.java的notifyListeners函数以增加Lexical Error提醒
+	@Override
+	public void notifyListeners(LexerNoViableAltException e) {
+		String text = _input.getText(Interval.of(_tokenStartCharIndex, _input.index()));
+		String msg = "token recognition error at: '"+ getErrorDisplay(text) + "'";
+
+		ANTLRErrorListener listener = getErrorListenerDispatch();
+		System.err.println("[Lexical Error]");
+		listener.syntaxError(this, null, _tokenStartLine, _tokenStartCharPositionInLine, msg, e);
+	}
+	
 }
