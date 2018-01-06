@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class main {
-	public static void Main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 		String inputFile = null;
 		/*if (args.length > 0)
 			inputFile = args[0];*/
