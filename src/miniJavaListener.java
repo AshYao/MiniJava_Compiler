@@ -37,6 +37,16 @@ public interface miniJavaListener extends ParseTreeListener {
 	 */
 	void exitClassDeclaration(miniJavaParser.ClassDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link miniJavaParser#classBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassBody(miniJavaParser.ClassBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link miniJavaParser#classBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassBody(miniJavaParser.ClassBodyContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link miniJavaParser#methodDeclaration}.
 	 * @param ctx the parse tree
 	 */
@@ -47,6 +57,16 @@ public interface miniJavaListener extends ParseTreeListener {
 	 */
 	void exitMethodDeclaration(miniJavaParser.MethodDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link miniJavaParser#methodBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodBody(miniJavaParser.MethodBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link miniJavaParser#methodBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodBody(miniJavaParser.MethodBodyContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link miniJavaParser#varDecl}.
 	 * @param ctx the parse tree
 	 */
@@ -56,6 +76,16 @@ public interface miniJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVarDecl(miniJavaParser.VarDeclContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link miniJavaParser#argList}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgList(miniJavaParser.ArgListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link miniJavaParser#argList}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgList(miniJavaParser.ArgListContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link miniJavaParser#argv}.
 	 * @param ctx the parse tree
@@ -96,4 +126,14 @@ public interface miniJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpr(miniJavaParser.ExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link miniJavaParser#id}.
+	 * @param ctx the parse tree
+	 */
+	void enterId(miniJavaParser.IdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link miniJavaParser#id}.
+	 * @param ctx the parse tree
+	 */
+	void exitId(miniJavaParser.IdContext ctx);
 }

@@ -1,0 +1,8 @@
+[Compile]
+bool = True
+
+[ST]
+bool = True
+
+[AST]
+bool = True

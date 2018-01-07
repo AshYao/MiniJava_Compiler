@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 public class main {
 	public static void main(String[] args) throws Exception {
 		String inputFile = null;
-		/*if (args.length > 0)
-			inputFile = args[0];*/
-		inputFile = "C:\\Users\\Ash Yao\\Desktop\\Complier\\miniJava\\TestFile\\test_factorial.java";
+		if (args.length > 0)
+			inputFile = args[0];
+		// inputFile = "C:\\Users\\Ash Yao\\Desktop\\Complier\\miniJava\\TestFile\\test_factorial.java";
 		InputStream is = System.in;
 		if (inputFile != null)
 			is = new FileInputStream(inputFile);
@@ -27,10 +27,11 @@ public class main {
 		parser.addErrorListener(new MyListener.SyntaxErrorListener());
 		
 		ParseTree tree = parser.goal(); // parse; start at prog
-		PrintStream ps = new PrintStream(new FileOutputStream(new File("C:\\Users\\Ash Yao\\Desktop\\Complier\\miniJava\\TestFile\\test.txt")));
+		PrintStream ps = new PrintStream(new FileOutputStream(new File(args[1])));
 		ps.println(tree.toStringTree(parser));
 		// System.out.println(tree.toStringTree(parser)); // print tree as text
 		
+		/*
 		JFrame frame = new JFrame("Abstract Syntax Tree GUI");
 		JPanel panel = new JPanel();
 		TreeViewer viewer = new TreeViewer(Arrays.asList(parser.getRuleNames()), tree);
@@ -41,6 +42,6 @@ public class main {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1366, 768);
-
+		*/
 	}
 }

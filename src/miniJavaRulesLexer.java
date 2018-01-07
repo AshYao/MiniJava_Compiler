@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class miniJavaLexer extends Lexer {
+public class miniJavaRulesLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -85,7 +85,7 @@ public class miniJavaLexer extends Lexer {
 	}
 
 
-	public miniJavaLexer(CharStream input) {
+	public miniJavaRulesLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -212,16 +212,4 @@ public class miniJavaLexer extends Lexer {
 			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
 		}
 	}
-	
-	// 重写Lexer.java的notifyListeners函数以增加Lexical Error提醒
-	@Override
-	public void notifyListeners(LexerNoViableAltException e) {
-		String text = _input.getText(Interval.of(_tokenStartCharIndex, _input.index()));
-		String msg = "token recognition error at: '"+ getErrorDisplay(text) + "'";
-
-		ANTLRErrorListener listener = getErrorListenerDispatch();
-		System.err.println("[Lexical Error]");
-		listener.syntaxError(this, null, _tokenStartLine, _tokenStartCharPositionInLine, msg, e);
-	}
-
 }

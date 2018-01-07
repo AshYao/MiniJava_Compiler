@@ -59,7 +59,7 @@ def ASTDrawer(infile, outdir):
             while i < len(line):
                 if line[i] == '(':
                     depth += 1
-                    print str(depth) + '\t('
+                    # print str(depth) + '\t('
                     if line[i+1] != ' ':
                         content = getNode(line, i)
                         i += (len(content) + 1)
@@ -72,7 +72,7 @@ def ASTDrawer(infile, outdir):
                         i += 1
                 elif line[i] == ')':
                     depth -= 1
-                    print str(depth) + '\t)'
+                    # print str(depth) + '\t)'
                     if depth < pNode.d:
                         # print 'out\t' + pNode.n + '\t' + str(depth) + '\t' + str(i)
                         pNode = pNode.p
@@ -102,6 +102,6 @@ def ASTDrawer(infile, outdir):
 
 
 if __name__ == '__main__':
-    #ASTDrawer(sys.argv[1], sys.argv[2])
-    ASTDrawer('C:\\Users\\Ash Yao\\Desktop\\Complier\\miniJava\\TestFile\\test.txt',
-              'C:\\Users\\Ash Yao\\Desktop\\Complier\\miniJava\\TestFile\\')
+    ASTDrawer(sys.argv[1], sys.argv[2])
+    #ASTDrawer('C:\\Users\\Ash Yao\\Desktop\\Complier\\miniJava\\TestFile\\test.txt',
+              #'C:\\Users\\Ash Yao\\Desktop\\Complier\\miniJava\\TestFile\\')
