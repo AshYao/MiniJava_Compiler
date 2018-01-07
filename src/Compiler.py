@@ -39,6 +39,5 @@ def Complier(argv):
     except Exception as e:
         print e
 
-
 if __name__ == '__main__':
     Complier(sys.argv[1])
